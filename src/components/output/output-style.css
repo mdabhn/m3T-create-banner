@@ -1,0 +1,17 @@
+.common-height {
+  min-height: 168px;
+  max-height: 168px;
+}
+
+@media print {
+
+  .__main_container {
+    width: 100% !important;
+    display: flex;
+  }
+
+  .size__container {
+    min-width: 10px ;
+  }
+
+}
