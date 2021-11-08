@@ -78,9 +78,9 @@ const Output = ({ qr_, size, colors }) => {
               style={{ position: 'absolute', bottom: '0' }}
             >
               <img
-                src='https://cdn.shopify.com/s/files/1/0529/0275/6502/files/BOUGE_MOI_trans_7be97b59-c74b-4650-96c9-68ab17bb3d2b.png?height=628&pad_color=ffffff&v=1611676963&width=1200'
+                src='/logo.png'
                 alt=''
-                style={{ width: '100px' }}
+                style={{ width: '120px', marginBottom: '10px' }}
               />
             </div>
           </div>

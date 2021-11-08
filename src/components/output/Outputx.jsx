@@ -3,7 +3,7 @@ import { useReactToPrint } from 'react-to-print'
 
 import './output-style.css'
 
-const Outputx = ({ qr_, size, colors, bat, mrp }) => {
+const Outputx = ({ qr_, size, bat, mrp, artical }) => {
   const printRef = useRef()
 
   const print = useReactToPrint({
@@ -31,9 +31,9 @@ const Outputx = ({ qr_, size, colors, bat, mrp }) => {
           >
             <span className='d-flex justify-content-center align-items-center'>
               <img
-                src='https://cdn.shopify.com/s/files/1/0529/0275/6502/files/BOUGE_MOI_trans_7be97b59-c74b-4650-96c9-68ab17bb3d2b.png?height=628&pad_color=ffffff&v=1611676963&width=1200'
+                src='/logo.png'
                 alt=''
-                style={{ width: '100px', transform: 'rotate(90deg)' }}
+                style={{ width: '130px', transform: 'rotate(90deg)' }}
               />
             </span>
           </div>
@@ -43,9 +43,10 @@ const Outputx = ({ qr_, size, colors, bat, mrp }) => {
               <span>MRP - {mrp}</span>
               <span>size - {size}</span>
             </div>
+            <div className=''>Artical - {artical}</div>
           </div>
           <div className='col-4 border d-flex justify-content-center align-items-center'>
-            <img src={qr_} alt='qr-code' style={{ width: '100px' }} />
+            <img src={qr_} alt='qr-code' style={{ width: '120px' }} />
           </div>
         </div>
       </div>

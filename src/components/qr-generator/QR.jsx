@@ -11,6 +11,7 @@ function QR() {
   const [colors, setColors] = useState(undefined)
   const [bat, setBat] = useState(undefined)
   const [mrp, setMrp] = useState(undefined)
+  const [artical, setArtical] = useState('')
 
   const genBanner = (event) => {
     event.preventDefault()
@@ -44,7 +45,6 @@ function QR() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '450px',
         }}
       >
         <form onSubmit={genBanner}>
@@ -100,6 +100,18 @@ function QR() {
               onChange={(e) => setBat(e.target.value)}
               required
             />
+
+            <label htmlFor='size' className='mt-1'>
+              Artical
+            </label>
+            <input
+              type='text'
+              className='form-control mt-1'
+              value={artical}
+              onChange={(e) => setArtical(e.target.value)}
+              required
+            />
+
             <div className='d-flex justify-content-center'>
               <button className='btn btn-dark w-50 mt-4 text-center'>
                 Generate
@@ -110,7 +122,9 @@ function QR() {
       </div>
 
       {qr_ && <OutPut qr_={qr_} size={size} colors={colors} />}
-      {qr_ && <OutPutx qr_={qr_} size={size} bat={bat} mrp={mrp} />}
+      {qr_ && (
+        <OutPutx qr_={qr_} size={size} bat={bat} mrp={mrp} artical={artical} />
+      )}
     </div>
   )
 }
