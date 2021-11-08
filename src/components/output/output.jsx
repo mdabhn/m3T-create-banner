@@ -19,6 +19,7 @@ const Output = ({ qr_, size, colors }) => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+        marginTop: '30px',
       }}
       className='printable'
     >

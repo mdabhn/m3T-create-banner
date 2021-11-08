@@ -2,12 +2,15 @@ import { useState } from 'react'
 import QRCode from 'qrcode'
 
 import OutPut from '../output/output'
+import OutPutx from '../output/Outputx'
 
 function QR() {
   const [qr_, setQr] = useState('')
   const [qr_text, setQrText] = useState('')
   const [size, setSize] = useState(undefined)
   const [colors, setColors] = useState(undefined)
+  const [bat, setBat] = useState(undefined)
+  const [mrp, setMrp] = useState(undefined)
 
   const genBanner = (event) => {
     event.preventDefault()
@@ -25,18 +28,18 @@ function QR() {
   return (
     <div className='container-fluid'>
       <div
-        className='text-center h2 mt-3'
+        className='text-center h2 mt-3 mb-2'
         style={{
           textTransform: 'uppercase',
           letterSpacing: '3px',
           wordSpacing: '5px',
         }}
       >
-        create banner
+        create New banner
       </div>
 
       <div
-        className='__container_box'
+        className='__container_box mt-4'
         style={{
           display: 'flex',
           justifyContent: 'center',
@@ -77,6 +80,26 @@ function QR() {
               onChange={(e) => setColors(e.target.value)}
               required
             />
+            <label htmlFor='size' className='mt-1'>
+              MRP
+            </label>
+            <input
+              type='number'
+              className='form-control mt-1'
+              value={mrp}
+              onChange={(e) => setMrp(e.target.value)}
+              required
+            />
+            <label htmlFor='size' className='mt-1'>
+              Bat
+            </label>
+            <input
+              type='text'
+              className='form-control mt-1'
+              value={bat}
+              onChange={(e) => setBat(e.target.value)}
+              required
+            />
             <div className='d-flex justify-content-center'>
               <button className='btn btn-dark w-50 mt-4 text-center'>
                 Generate
@@ -87,6 +110,7 @@ function QR() {
       </div>
 
       {qr_ && <OutPut qr_={qr_} size={size} colors={colors} />}
+      {qr_ && <OutPutx qr_={qr_} size={size} bat={bat} mrp={mrp} />}
     </div>
   )
 }
