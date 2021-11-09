@@ -7,11 +7,11 @@ import OutPutx from '../output/Outputx'
 function QR() {
   const [qr_, setQr] = useState('')
   const [qr_text, setQrText] = useState('')
-  const [size, setSize] = useState(undefined)
-  const [colors, setColors] = useState(undefined)
-  const [bat, setBat] = useState(undefined)
-  const [mrp, setMrp] = useState(undefined)
-  const [artical, setArtical] = useState('')
+  const [size, setSize] = useState('')
+  const [colors, setColors] = useState('')
+  const [bat, setBat] = useState('')
+  const [mrp, setMrp] = useState('')
+  const [article, setarticle] = useState('')
 
   const genBanner = (event) => {
     event.preventDefault()
@@ -19,7 +19,6 @@ function QR() {
     QRCode.toDataURL(qr_text)
       .then((url) => {
         setQr(url)
-        console.log(url)
       })
       .catch((err) => {
         console.error(err)
@@ -102,13 +101,13 @@ function QR() {
             />
 
             <label htmlFor='size' className='mt-1'>
-              Artical
+              article
             </label>
             <input
               type='text'
               className='form-control mt-1'
-              value={artical}
-              onChange={(e) => setArtical(e.target.value)}
+              value={article}
+              onChange={(e) => setarticle(e.target.value)}
               required
             />
 
@@ -121,9 +120,18 @@ function QR() {
         </form>
       </div>
 
-      {qr_ && <OutPut qr_={qr_} size={size} colors={colors} />}
       {qr_ && (
-        <OutPutx qr_={qr_} size={size} bat={bat} mrp={mrp} artical={artical} />
+        <OutPut
+          qr_={qr_}
+          size={size}
+          colors={colors}
+          bat={bat}
+          mrp={mrp}
+          article={article}
+        />
+      )}
+      {qr_ && (
+        <OutPutx qr_={qr_} size={size} bat={bat} mrp={mrp} article={article} />
       )}
     </div>
   )
